@@ -966,6 +966,7 @@ export const RunStartQuest: Quest = {
       completed: () =>
         mainStat === $stat`Moxie` || !have($item`Peridot of Peril`) || have($item`cherry`),
       do: $location`The Skeleton Store`,
+      choices: { 1060: 5 },
       combat: new CombatStrategy().macro(
         Macro.if_($monster`time cop`, Macro.default())
           .if_(
@@ -991,7 +992,7 @@ export const RunStartQuest: Quest = {
           use($item`MayDay™ supply package`, 1);
         if (have($item`space blanket`)) autosell($item`space blanket`, 1);
       },
-      limit: { tries: 2 },
+      limit: { tries: 3 },
     },
     {
       name: "Map Novelty Tropical Skeleton",
@@ -1068,6 +1069,7 @@ export const RunStartQuest: Quest = {
             completedSkeletonBanishes() ||
             !haveFreeSkeletonBanish())),
       do: $location`The Skeleton Store`,
+      choices: { 1060: 5 },
       combat: new CombatStrategy().macro(() =>
         Macro.if_(
           "!haseffect Everything Looks Yellow",
